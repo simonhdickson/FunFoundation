@@ -85,7 +85,7 @@ module FoundationDb =
             let error = fdb_future_set_callback(ptr, callback, 0n)
             match error with
             | 0 -> do! Async.AwaitWaitHandle waitHandle |> Async.Ignore
-                   return Success (!result)
+                   return Success !result
             | _ -> return FatalError
         }
 
